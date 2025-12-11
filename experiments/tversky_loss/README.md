@@ -19,11 +19,11 @@ Ultralytics does not support Focal-Tversky natively, therefore this experiment r
 ## Folder Structure
 
 ```
-experiments/tversky/
+experiments/tversky_loss/
 ├── losses_tversky.py        # Custom Tversky & Focal-Tversky losses
 ├── modified_loss.py         # Patched Ultralytics loss.py with Focal-Tversky integration
 ├── install_patches.py       # Automatic installer for this experiment
-├── train_cv.py              # 5-Fold Cross-Validation training script
+├── tverky_cv.py              # 5-Fold Cross-Validation training script
 └── README.md
 ```
 
@@ -44,13 +44,13 @@ Python 3.9+ recommended.
 Run the installer once before training:
 
 ```
-python experiments/tversky/install_patches.py
+python experiments/tversky_loss/install_patches.py
 ```
 
 This script performs:
 
 1. Copies:
-   `experiments/tversky/losses_tversky.py` → `ultralytics/utils/losses_tversky.py`
+   `experiments/tversky_loss/losses_tversky.py` → `ultralytics/utils/losses_tversky.py`
 
 2. Creates a backup of the original YOLO loss:
    `ultralytics/utils/loss.py` → `loss_original.py`
@@ -65,7 +65,7 @@ After installation, Ultralytics will use the patched Tversky / Focal-Tversky mas
 ## Step 2 — Run the Training Script (5-Fold CV)
 
 ```
-python experiments/tversky/train_cv.py
+python experiments/tversky_loss/tversky_cv.py
 ```
 
 This will:
