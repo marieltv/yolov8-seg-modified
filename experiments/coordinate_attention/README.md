@@ -18,7 +18,7 @@ Ultralytics does not provide Coordinate Attention natively, therefore this exper
     experiments/coordinate_attention/
     ├── coordinate_attention.py     # CoordAtt module implementation
     ├── yolov8-seg-ca.yaml          # YOLOv8-seg architecture with CoordAtt blocks
-    ├── train_cv.py                 # 5-Fold Cross-Validation training script
+    ├── coordatt_cv.py                 # 5-Fold Cross-Validation training script
     └── README.md
 
 ---
@@ -141,8 +141,4 @@ The console reports mean ± standard deviation for:
 
 This experiment evaluates whether Coordinate Attention improves spatial feature representation and ship segmentation performance compared to the YOLOv8-seg baseline on the HRSID dataset.
 
----
 
-## Reference
-
-Hou et al., “Coordinate Attention for Efficient Mobile Network Design”, CVPR 2021

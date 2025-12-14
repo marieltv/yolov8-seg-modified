@@ -32,8 +32,8 @@ import ultralytics.nn.tasks as T
 # -------------------------------------------------
 # Configuration paths
 # -------------------------------------------------
-CONFIG_YAML_PATH: str = "/content/drive/MyDrive/Colab_Data/HRSID_YOLO_Format/HRSID_data.yaml"
-output_dir: str = "/content/drive/MyDrive/Colab_Data/YOLO_CoordAt_CV"
+CONFIG_YAML_PATH: str = "data/HRSID_YOLO_Format/HRSID_data.yaml"
+output_dir: str = "data/YOLO_CoordAt_CV"
 os.makedirs(output_dir, exist_ok=True)
 
 
