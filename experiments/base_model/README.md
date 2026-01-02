@@ -3,24 +3,25 @@
 This experiment evaluates the **baseline YOLOv8 segmentation model** on the HRSID ship dataset
 using **5-Fold Cross-Validation** without any architectural or loss-function modifications.
 
-It serves as the **reference baseline** for all subsequent experiments
+It can stand as an independent model or serve as the **reference baseline** for all subsequent experiments 
 (Coordinate Attention, Tversky / Focal-Tversky loss).
 
 ---
 
 ## Folder Structure
-
-experiments/base_cv/
-├── base_cv.py          # 5-Fold Cross-Validation training script (baseline)
+```
+experiments/base_model/
 └── README.md
-
+├── train.py          # 5-Fold Cross-Validation training script (baseline)
+└── requirements.txt
+```
 The dataset is expected to be stored outside this folder.
 
 ---
 
-## Requirements
+## Prepare environment
 
-pip install ultralytics
+`pip install ultralytics`
 
 Python 3.9+ recommended.  
 CUDA-enabled PyTorch is strongly recommended.
@@ -34,17 +35,17 @@ to YOLO **segmentation** format.
 
 Expected directory:
 
-data/HRSID_YOLO_Format/
+`data/HRSID_YOLO_Format/`
 
 Required file:
 
-data/HRSID_YOLO_Format/HRSID_data.yaml
+`data/HRSID_YOLO_Format/HRSID_data.yaml`
 
 The YAML file must define:
-- path
-- train
-- val
-- names
+- `path`
+- `train`
+- `val`
+- `names`
 
 Dataset conversion is handled in a separate pipeline and is not part of this experiment.
 
@@ -54,7 +55,7 @@ Dataset conversion is handled in a separate pipeline and is not part of this exp
 
 The baseline model uses the **official pretrained YOLOv8 segmentation checkpoint**:
 
-yolov8n-seg.pt
+`yolov8n-seg.pt`
 
 No architectural changes, custom layers, or loss modifications are applied.
 
@@ -75,14 +76,14 @@ No architectural changes, custom layers, or loss modifications are applied.
 
 From the repository root:
 
-python experiments/base_cv/train_cv.py
+`python train.py`
 
 ---
 
 ## Outputs
 
 Results are saved to:
-
+```
 data/YOLO_CV_Results/
 ├── fold_1/
 │   └── weights/best.pt
@@ -94,7 +95,7 @@ data/YOLO_CV_Results/
 │   └── weights/best.pt
 └── fold_5/
     └── weights/best.pt
-
+```
 The console reports **mean ± standard deviation** across folds for:
 - mAP50-95_box
 - mAP50_box
@@ -103,15 +104,6 @@ The console reports **mean ± standard deviation** across folds for:
 
 ---
 
-## Notes
-
-- No Ultralytics source files are modified
-- No custom modules are registered
-- No loss functions are patched
-- Each fold uses a fresh model instance
-- Fully reproducible from GitHub
-
----
 
 ## Experiment Purpose
 

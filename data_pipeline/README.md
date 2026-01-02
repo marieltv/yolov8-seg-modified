@@ -18,9 +18,11 @@ After execution, the dataset is ready for training with all experiments in this 
 
 ```
 data_pipeline/
-├── unzip.py                # Extracts HRSID JPG archive
-├── converting_polygons.py  # Converts COCO polygons → YOLO segmentation format
 ├── README.md               # This file
+├── converting_polygons.py  # Converts COCO polygons → YOLO segmentation format
+├── requirements.txt        # Necessary dependencies
+├── unzip.py                # Extracts HRSID JPG archive
+
 ```
 
 ---
@@ -40,8 +42,19 @@ data/HRSID_raw/
 These are required for the polygon conversion step.
 
 ---
+## Step 1- Prepare the environment
+Make sure you are in the right directory, use:
+```
+cd data_pipeline
+```
+Install dependencies:
+```
+pip install -r requirements.txt
+```
 
-## Step 1 — Unzip the HRSID Images
+---
+
+## Step 2 — Unzip the HRSID Images
 
 ```
 python data_pipeline/unzip.py
@@ -55,7 +68,7 @@ data/HRSID_raw/HRSID_JPG/JPEGImages/
 
 ---
 
-## Step 2 — Convert COCO Annotations to YOLO Segmentation Format
+## Step 3 — Convert COCO Annotations to YOLO Segmentation Format
 
 ```
 python data_pipeline/converting_polygons.py
