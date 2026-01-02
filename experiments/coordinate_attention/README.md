@@ -6,7 +6,6 @@ It includes:
 - Custom implementation of:
   - `CoordAtt` (Coordinate Attention block)
 - Modified YOLOv8-seg architecture defined via YAML
-- Dynamic runtime registration of the custom attention module (no Ultralytics patching)
 - A 5-Fold Cross-Validation training pipeline
 
 Ultralytics does not provide Coordinate Attention natively, therefore this experiment registers the custom module at runtime so that it can be resolved by the YOLO model parser.
@@ -16,22 +15,25 @@ Ultralytics does not provide Coordinate Attention natively, therefore this exper
 ## Folder Structure
 
     experiments/coordinate_attention/
-    ├── coordinate_attention.py     # CoordAtt module implementation
-    ├── yolov8-seg-ca.yaml          # YOLOv8-seg architecture with CoordAtt blocks
-    ├── coordatt_cv.py                 # 5-Fold Cross-Validation training script
     └── README.md
+    ├── coordinate_attention.py     # CoordAtt module implementation
+    ├── requirements.txt     
+    ├── train.py                    # 5-Fold Cross-Validation training script
+    ├── yolov8-seg-ca.yaml          # YOLOv8-seg architecture with CoordAtt blocks
+    
+    
 
 ---
 
-## Requirements
-
-Install Ultralytics:
-
-    pip install ultralytics
-
-Python 3.9+ recommended.  
-CUDA-enabled PyTorch is strongly recommended for training.
-
+## Prepare the environment
+Make sure you are in the right directory, use:
+```
+cd experiments/coordinate_attention
+```
+Install dependencies:
+```
+pip install -r requirements.txt
+```
 ---
 
 ## Dataset Requirements
@@ -62,7 +64,7 @@ Ultralytics does **not** recognize custom modules automatically.
 
 To enable `CoordAtt` inside YOLO YAML parsing and model construction, the module is registered at runtime inside the training script.
 
-Inside `train_cv.py`, before model creation and **for every fold**:
+Inside `train.py`, before model creation and **for every fold**:
 
     from coordinate_attention import CoordAtt
     import ultralytics.nn.modules as M
@@ -90,9 +92,9 @@ Using a pretrained `.pt` model will not activate the Coordinate Attention blocks
 
 ## Running the Experiment (5-Fold CV)
 
-From the repository root:
+From the experiment root:
 
-    python experiments/coordinate_attention/train_cv.py
+    python train_cv.py
 
 This script will:
 - Build 5 cross-validation folds
@@ -124,16 +126,6 @@ The console reports mean ± standard deviation for:
 - `mAP50_box`
 - `mAP50-95_mask`
 - `mAP50_mask`
-
----
-
-## Notes
-
-- No Ultralytics source files are modified
-- No patching or installer scripts are required
-- Module registration is local to this experiment
-- Fully reproducible from GitHub
-- Independent from Tversky / loss-based experiments
 
 ---
 
