@@ -27,7 +27,7 @@ data_pipeline/
 
 ## Input Expectations
 
-Before running the scripts, place the downloaded **HRSID dataset** here:
+Before running the scripts, make sure **HRSID dataset** is here:
 
 ```
 data/HRSID_raw/
