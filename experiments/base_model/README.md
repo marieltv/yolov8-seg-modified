@@ -3,22 +3,23 @@
 This experiment evaluates the **baseline YOLOv8 segmentation model** on the HRSID ship dataset
 using **5-Fold Cross-Validation** without any architectural or loss-function modifications.
 
-It serves as the **reference baseline** for all subsequent experiments
+It can stand as an independent model or serve as the **reference baseline** for all subsequent experiments 
 (Coordinate Attention, Tversky / Focal-Tversky loss).
 
 ---
 
 ## Folder Structure
 ```
-experiments/base_cv/
-├── base_cv.py          # 5-Fold Cross-Validation training script (baseline)
+experiments/base_model/
 └── README.md
+├── train.py          # 5-Fold Cross-Validation training script (baseline)
+└── requirements.txt
 ```
 The dataset is expected to be stored outside this folder.
 
 ---
 
-## Requirements
+## Prepare environment
 
 `pip install ultralytics`
 
@@ -75,7 +76,7 @@ No architectural changes, custom layers, or loss modifications are applied.
 
 From the repository root:
 
-`python experiments/base_cv/train_cv.py`
+`python train.py`
 
 ---
 
@@ -103,15 +104,6 @@ The console reports **mean ± standard deviation** across folds for:
 
 ---
 
-## Notes
-
-- No Ultralytics source files are modified
-- No custom modules are registered
-- No loss functions are patched
-- Each fold uses a fresh model instance
-- Fully reproducible from GitHub
-
----
 
 ## Experiment Purpose
 
