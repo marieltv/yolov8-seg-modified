@@ -12,20 +12,23 @@ It can stand as an independent model or serve as the **reference baseline** for 
 ```
 experiments/base_model/
 └── README.md
-├── train.py          # 5-Fold Cross-Validation training script (baseline)
 └── requirements.txt
+├── train.py          # 5-Fold Cross-Validation training script (baseline)
+
 ```
 The dataset is expected to be stored outside this folder.
 
 ---
 
-## Prepare environment
-
-`pip install ultralytics`
-
-Python 3.9+ recommended.  
-CUDA-enabled PyTorch is strongly recommended.
-
+## Prepare the environment
+Make sure you are in the right directory, use:
+```
+cd experiments/base_model
+```
+Install dependencies:
+```
+pip install -r requirements.txt
+```
 ---
 
 ## Dataset Requirements
