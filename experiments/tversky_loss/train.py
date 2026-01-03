@@ -9,8 +9,8 @@ from sklearn.model_selection import KFold
 from ultralytics.utils.losses_tversky import FocalTverskyLoss
 
 
-CONFIG_YAML_PATH: str = "/content/drive/MyDrive/Colab_Data/HRSID_YOLO_Format/HRSID_data.yaml"
-output_dir: str = "/content/drive/MyDrive/Colab_Data/YOLO_Tversky_CV"
+CONFIG_YAML_PATH: str = "data/HRSID_YOLO_Format/HRSID_data.yaml"
+output_dir: str = "data/YOLO_Tversky_CV"
 os.makedirs(output_dir, exist_ok=True)
 
 with open(CONFIG_YAML_PATH, "r") as f:
