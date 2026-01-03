@@ -13,7 +13,7 @@ It can stand as an independent model or serve as the **reference baseline** for 
 experiments/base_model/
 ├── README.md
 ├── requirements.txt
-└──train.py          # 5-Fold Cross-Validation training script (baseline)
+└── train.py          # 5-Fold Cross-Validation training script (baseline)
 
 ```
 The dataset is expected to be stored outside this folder.
