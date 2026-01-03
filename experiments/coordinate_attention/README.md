@@ -15,11 +15,11 @@ Ultralytics does not provide Coordinate Attention natively, therefore this exper
 ## Folder Structure
 
     experiments/coordinate_attention/
-    └── README.md
+    ├── README.md
     ├── coordinate_attention.py     # CoordAtt module implementation
     ├── requirements.txt     
     ├── train.py                    # 5-Fold Cross-Validation training script
-    ├── yolov8-seg-ca.yaml          # YOLOv8-seg architecture with CoordAtt blocks
+    └── yolov8-seg-ca.yaml          # YOLOv8-seg architecture with CoordAtt blocks
     
     
 
