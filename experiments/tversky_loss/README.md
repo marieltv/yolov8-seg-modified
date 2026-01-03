@@ -20,12 +20,12 @@ Ultralytics does not support Focal-Tversky natively, therefore this experiment r
 
 ```
 experiments/tversky_loss/
-└── README.md
+├── README.md
 ├── install_patches.py       # Automatic installer for this experiment
 ├── losses_tversky.py        # Custom Tversky & Focal-Tversky losses
 ├── modified_loss.py         # Patched Ultralytics loss.py with Focal-Tversky integration
 ├── requirements.txt          
-├── train.py                 # 5-Fold Cross-Validation training script
+└── train.py                 # 5-Fold Cross-Validation training script
 
 ```
 
@@ -103,9 +103,11 @@ This restores default YOLO loss behavior.
 ---
 ## Different parameters
 
-`Important`: for tversky_loss we need to define 3 parameters
+`Important`: for tversky_loss we need to define 3 parameters 
 
--&alpha; - 
+- &alpha; - the higher this value, the more the model penalizes false positives (cases where the model detects a ship that is not actually present).
+- &beta; - the higher this value, the more the model penalizes false negatives (cases where the model fails to detect a ship that is actually present).
+- 
 
 ---
 ## Notes
